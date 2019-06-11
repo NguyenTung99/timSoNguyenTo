@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<input type="number" id="soNguyenTo"/>
+<button type="button" onclick="kiemTraSoNguyenTo()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+
+    let showMess = 'yes';
+    let inputN = document.getElementById('soNguyenTo');
+    function kiemTraSoNguyenTo() {
+        let num = parseInt(inputN.value);
+
+            if(num<2){
+                showMess = 'ko phai'
+            }else if (num == 2){
+                showMess = 'so chan ng to duy nhat';
+            }else if(num%2==0){
+               showMess = "ko phai"
+            }else {
+                for (var i = 3; i < num; i+=2)
+                {
+                    if (num % i == 0){
+                        showMess = "ko phai";
+                        break;
+                    }
+                }
+
+            }
+
+            document.getElementById('result').innerHTML = showMess;
+
+    }
+    </script>
+</body>
+</html>
